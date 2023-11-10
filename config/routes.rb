@@ -24,6 +24,9 @@ Rails.application.routes.draw do
       resources :settings, only: [] do
         get :must_update, on: :collection
       end
+
+      resources :trainings
+      resources :programs
     end
   end
 end

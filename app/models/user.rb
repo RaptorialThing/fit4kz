@@ -42,6 +42,11 @@ class User < ApplicationRecord
 
   before_validation :init_uid
 
+  has_many :program_followers
+  has_many :programs, through: :program_followers
+  has_many :trainings
+  alias_attribute :author_trainings, :trainings
+
   RANSACK_ATTRIBUTES = %w[id email first_name last_name username sign_in_count current_sign_in_at
                           last_sign_in_at current_sign_in_ip last_sign_in_ip provider uid
                           created_at updated_at].freeze
