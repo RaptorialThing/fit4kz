@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_04_182448) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_10_121819) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -92,12 +92,43 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_182448) do
     t.index ["feature_key", "key", "value"], name: "index_flipper_gates_on_feature_key_and_key_and_value", unique: true
   end
 
+  create_table "program_followers", force: :cascade do |t|
+    t.bigint "program_id"
+    t.bigint "user_id"
+    t.datetime "follow_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["program_id"], name: "index_program_followers_on_program_id"
+    t.index ["user_id"], name: "index_program_followers_on_user_id"
+  end
+
+  create_table "programs", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "description"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_programs_on_user_id"
+  end
+
   create_table "settings", force: :cascade do |t|
     t.string "key", null: false
     t.string "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["key"], name: "index_settings_on_key", unique: true
+  end
+
+  create_table "trainings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "program_id"
+    t.string "video_link"
+    t.text "description"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["program_id"], name: "index_trainings_on_program_id"
+    t.index ["user_id"], name: "index_trainings_on_user_id"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
