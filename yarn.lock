@@ -4,7 +4,7 @@
 
 "@activeadmin/activeadmin@3.1.0":
   version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@activeadmin/activeadmin/-/activeadmin-3.1.0.tgz#db3d6179ff55668d667c0139f85ed09399d8f6e3"
+  resolved "https://registry.npmjs.org/@activeadmin/activeadmin/-/activeadmin-3.1.0.tgz"
   integrity sha512-BWKQGs5H5VHvo47Wje5aNEnir85/TnKL2jqshCsXUhwoFCm3OyqM7Tu2yeS0E2h32QAwbCO9HPLf5hIzVSYJ2A==
   dependencies:
     jquery "^3.4.1"
@@ -88,7 +88,7 @@
 
 "@esbuild/linux-x64@0.19.5":
   version "0.19.5"
-  resolved "https://registry.yarnpkg.com/@esbuild/linux-x64/-/linux-x64-0.19.5.tgz#46feba2ad041a241379d150f415b472fe3885075"
+  resolved "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.19.5.tgz"
   integrity sha512-psagl+2RlK1z8zWZOmVdImisMtrUxvwereIdyJTmtmHahJTKb64pAcqoPlx6CewPdvGvUKe2Jw+0Z/0qhSbG1A==
 
 "@esbuild/netbsd-x64@0.19.5":
@@ -123,17 +123,17 @@
 
 "@fortawesome/fontawesome-free@6.4.2":
   version "6.4.2"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.4.2.tgz#36b6a9cb5ffbecdf89815c94d0c0ffa489ac5ecb"
+  resolved "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-6.4.2.tgz"
   integrity sha512-m5cPn3e2+FDCOgi1mz0RexTUvvQibBebOUlUlW0+YrMjDTPkiJ6VTKukA1GRsvRw+12KyJndNjj0O4AgTxm2Pg==
 
 arctic_admin@4.2.6:
   version "4.2.6"
-  resolved "https://registry.yarnpkg.com/arctic_admin/-/arctic_admin-4.2.6.tgz#d4464e1f678b2a8249e32828d48386a6ea32276e"
+  resolved "https://registry.npmjs.org/arctic_admin/-/arctic_admin-4.2.6.tgz"
   integrity sha512-zdHHjwrf33LEBxxNInW+2D+cwi3Kneu3DJ+nk0A61rCMWvdkJSjFeKc/AxLQCxZRLTNJ7BYZBYjf1gsJ70pwlA==
 
 esbuild@0.19.5:
   version "0.19.5"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.19.5.tgz#53a0e19dfbf61ba6c827d51a80813cf071239a8c"
+  resolved "https://registry.npmjs.org/esbuild/-/esbuild-0.19.5.tgz"
   integrity sha512-bUxalY7b1g8vNhQKdB24QDmHeY4V4tw/s6Ak5z+jJX9laP5MoQseTOMemAr0gxssjNcH0MCViG8ONI2kksvfFQ==
   optionalDependencies:
     "@esbuild/android-arm" "0.19.5"
@@ -161,17 +161,22 @@ esbuild@0.19.5:
 
 jquery-ui@1.13.2, jquery-ui@^1.12.1:
   version "1.13.2"
-  resolved "https://registry.yarnpkg.com/jquery-ui/-/jquery-ui-1.13.2.tgz#de03580ae6604773602f8d786ad1abfb75232034"
+  resolved "https://registry.npmjs.org/jquery-ui/-/jquery-ui-1.13.2.tgz"
   integrity sha512-wBZPnqWs5GaYJmo1Jj0k/mrSkzdQzKDwhXNtHKcBdAcKVxMM3KNYFq+iJ2i1rwiG53Z8M4mTn3Qxrm17uH1D4Q==
   dependencies:
     jquery ">=1.8.0 <4.0.0"
 
 jquery-ujs@1.2.3, jquery-ujs@^1.2.2:
   version "1.2.3"
-  resolved "https://registry.yarnpkg.com/jquery-ujs/-/jquery-ujs-1.2.3.tgz#dcac6026ab7268e5ee41faf9d31c997cd4ddd603"
+  resolved "https://registry.npmjs.org/jquery-ujs/-/jquery-ujs-1.2.3.tgz"
   integrity sha512-59wvfx5vcCTHMeQT1/OwFiAj+UffLIwjRIoXdpO7Z7BCFGepzq9T9oLVeoItjTqjoXfUrHJvV7QU6pUR+UzOoA==
 
 jquery@3.7.1, "jquery@>=1.8.0 <4.0.0", jquery@^3.4.1:
   version "3.7.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.7.1.tgz#083ef98927c9a6a74d05a6af02806566d16274de"
+  resolved "https://registry.npmjs.org/jquery/-/jquery-3.7.1.tgz"
   integrity sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==
+
+yarn@^1.22.19:
+  version "1.22.19"
+  resolved "https://registry.npmjs.org/yarn/-/yarn-1.22.19.tgz"
+  integrity sha512-/0V5q0WbslqnwP91tirOvldvYISzaqhClxzyUKXYxs07yUILIs5jx/k6CFe8bvKSkds5w+eiOqta39Wk3WxdcQ==

@@ -60,3 +60,16 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+ru:
+  devise:
+    confirmations:
+      confirmed: "Ваш email успешно подтвержден"
+      send_instructions: "На вашу почту отправлены инструкции как подтвердить ваш email в течение нескольких минут"
+      send_paranoid_instructions: "Если ваш email уже существует, вам будет отправлено сообщение с доп.инструкциями"
+    failure:
+      already_authenticated: "email уже зарегистрирован"
+      inactive: "Ваш email еще не подтвержден"
+      invalid: "Неправильный %{authentication_keys} email адрес или пароль "
+      locked: "Ваш аккаунт заморожен"
+      last_attempt: "Последнее предупреждение перед заморозкой вашего аккаунта"
+      not_found_in_database: " Неправильный %{authentication_keys} или пароль"

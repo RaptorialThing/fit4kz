@@ -10,3 +10,14 @@ en:
       invalid_content_type: Invalid content type header
       missing_param: A required param is missing
       not_found: Couldn't find the record
+en:
+  active_admin:
+    dashboard: Главная страница
+    dashboard_welcome:
+      call_to_action: Действия
+      welcome: Добро пожаловать в админ панель
+  api:
+    errors:
+      invalid_content_type: Неправильный http заголоко content type
+      missing_param: Не передан обязательный параметр
+      not_found: Запись в таблице не найдена

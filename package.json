@@ -8,7 +8,8 @@
     "esbuild": "0.19.5",
     "jquery": "3.7.1",
     "jquery-ui": "1.13.2",
-    "jquery-ujs": "1.2.3"
+    "jquery-ujs": "1.2.3",
+    "yarn": "^1.22.19"
   },
   "scripts": {
     "build": "node esbuild.config.mjs"
