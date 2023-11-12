@@ -10,7 +10,8 @@ en:
       invalid_content_type: Invalid content type header
       missing_param: A required param is missing
       not_found: Couldn't find the record
-en:
+      already_email_exists: "email already exists"
+ru:
   active_admin:
     dashboard: Главная страница
     dashboard_welcome:
@@ -21,3 +22,4 @@ en:
       invalid_content_type: Неправильный http заголоко content type
       missing_param: Не передан обязательный параметр
       not_found: Запись в таблице не найдена
+      already_email_exists: "email уже зарегистрирован"

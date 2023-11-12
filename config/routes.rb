@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
       resources :trainings
       resources :programs
+
     end
   end
 end
