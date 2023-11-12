@@ -77,6 +77,7 @@ group :test do
   gem 'shoulda-matchers', '~> 5.3'
   gem 'simplecov', '~> 0.22.0', require: false
   gem 'webmock', '~> 3.19'
+  gem 'capybara'
 end
 
 group :assets do

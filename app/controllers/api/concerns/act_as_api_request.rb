@@ -7,13 +7,17 @@ module Api
 
       included do
         before_action :skip_session_storage
-        before_action :check_json_request
+        before_action :skip_check_json_request
       end
 
       def check_json_request
         return if !request_with_body? || request_content_type.include?('json')
 
         render json: { error: I18n.t('api.errors.invalid_content_type') }, status: :not_acceptable
+      end
+
+      def skip_check_json_request
+        check_json_request if request.format.json?
       end
 
       def skip_session_storage
