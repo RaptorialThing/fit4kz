@@ -11,6 +11,8 @@ en:
       missing_param: A required param is missing
       not_found: Couldn't find the record
       already_email_exists: "email already exists"
+      trainings:
+        no_video_link: "without video"
 ru:
   active_admin:
     dashboard: Главная страница
@@ -23,3 +25,5 @@ ru:
       missing_param: Не передан обязательный параметр
       not_found: Запись в таблице не найдена
       already_email_exists: "email уже зарегистрирован"
+      trainings:
+        no_video_link: "нет видео"

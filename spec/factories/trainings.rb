@@ -20,6 +20,7 @@ FactoryBot.define do
   factory :training do
     title { Faker::Movie.title }
     description { Faker::Movie.quote }
+    video_link { Faker::Internet.url }
     user
     program
   end
