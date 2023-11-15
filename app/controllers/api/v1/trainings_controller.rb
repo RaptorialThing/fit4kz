@@ -15,9 +15,10 @@ module Api
         training.user_id = current_user.id unless training.user_id
 
         if training.save
-          render json: training, status: 201 #jsonapi
+          render jsonapi: training, include: [ :program, :user ], fields: { program: [:title, :id], user: [:username, :uid] }, status: 201
+          #render jsonapi: training, include: [ user: [:username], program: [:title, trainings: [:title]]], status: 201
         else
-          render json: training.errors.full_messages, status: 415
+          render jsonapi_errors: training.errors, status: 415
         end
       end
 

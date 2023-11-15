@@ -31,12 +31,12 @@ describe 'POST api/v1/trainings' do
     expect { subject }.to change(Training, :count).by(1)
   end
   it 'returns the training data', :aggregate_failures do
-    subject #json[:training]
-    expect(json[:id]).to eq(training.id)
-    expect(json[:title]).to eq(training.title)
-    expect(json[:description]).to eq(training.description)
-    expect(json[:program_id]).to eq(program.id)
-    expect(json[:user_id]).to eq(user.id)
+    subject
+    expect(json[:data][:id]).to eq(training.id.to_s)
+    expect(json[:data][:attributes][:title]).to eq(training.title)
+    expect(json[:data][:attributes][:description]).to eq(training.description)
+    expect(json[:data][:relationships][:program][:data][:id]).to eq(program.id.to_s)
+    expect(json[:data][:relationships][:user][:data][:id]).to eq(user.id.to_s)
   end
 
   context 'when the program_id is not correct' do
