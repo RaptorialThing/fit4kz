@@ -2,6 +2,20 @@
 
 class ProgramPolicy < ApplicationPolicy
 
+  class Scope < Struct.new(:user, :program)
+    def resolve
+      if AdminUser.exists? user.id
+        Program.includes([:programs, :trainings])
+      else
+        User.includes(programs: [:trainings]).find(user.id).programs
+      end
+    end
+  end
+
+  def index?
+    true
+  end
+
   def new?
     true
   end
