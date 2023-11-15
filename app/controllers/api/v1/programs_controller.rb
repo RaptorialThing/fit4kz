@@ -5,6 +5,11 @@ module Api
     class ProgramsController < Api::V1::ApiController
       before_action :auth_user
 
+      def index
+        programs = policy_scope(Program)
+        render jsonapi: programs, include: [ :trainings, :user ], fields: { trainings: [:title, :id], user: [:username, :uid] }
+      end
+
       def new
         @program = Program.new
       end

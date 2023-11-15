@@ -16,7 +16,7 @@
 class Program < ApplicationRecord
   has_many :trainings
   has_many :program_followers
-  has_many :users, through: :program_followers
+  has_many :followed_users, through: :program_followers
   belongs_to :user
   alias_attribute :author, :user
 
