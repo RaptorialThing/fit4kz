@@ -27,7 +27,10 @@ module Api
         end
       end
 
-      def show; end
+      def show
+        @training = Training.includes([:program, :user]).find_by(id: params[:id])
+        render jsonapi_errors: { detail: "record not found"}, status: 404 unless @training
+      end
 
       def update
         current_user.update!(training_params)
