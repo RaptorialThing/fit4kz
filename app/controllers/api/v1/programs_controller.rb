@@ -26,7 +26,9 @@ module Api
         end
       end
 
-      def show; end
+      def show
+        @program = Program.includes([:user,:trainings]).find(params[:id])
+      end
 
       def update
         current_user.update!(program_params)
