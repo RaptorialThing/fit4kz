@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     passwords: 'api/v1/passwords'
   }
 
+  get "/", to: "welcome#index"
+
   namespace :api do
     namespace :v1, defaults: { format: :json } do
       get :status, to: 'api#status'
