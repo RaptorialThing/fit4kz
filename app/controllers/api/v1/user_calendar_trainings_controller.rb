@@ -59,7 +59,7 @@ module Api
 
         # Only allow a list of trusted parameters through.
         def user_calendar_training_params
-          params.require(:user_calendar_training).permit(:user_id, :training_id)
+          params.require(:user_calendar_training).permit(:user_id, :training_id, :icube_rule, :last_date)
         end
     end
   end
