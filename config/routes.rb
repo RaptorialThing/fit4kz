@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
       resources :trainings
       resources :programs
+      resources :user_calendar_trainings
 
     end
   end

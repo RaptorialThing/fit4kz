@@ -20,6 +20,7 @@ class Training < ApplicationRecord
   belongs_to :program
   belongs_to :user
   alias_attribute :author, :user
+  has_many :user_calendar_trainings
 
   validates_presence_of :title, :description
 end
