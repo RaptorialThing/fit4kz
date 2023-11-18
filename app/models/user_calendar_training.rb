@@ -7,6 +7,8 @@
 #  training_id :bigint           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  icube_rule  :string
+#  last_date   :datetime
 #
 # Indexes
 #
