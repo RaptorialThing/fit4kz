@@ -8,6 +8,15 @@ Rails Api Base is a boilerplate project for JSON RESTful APIs. It follows the co
 
 Finally, it contains a plug an play Administration console (thanks to [ActiveAdmin](https://github.com/activeadmin/activeadmin)).
 
+## Usage 
+
+Authentication
+- User
+  - Users 
+  - Admins
+[![asciicast](https://asciinema.org/a/JFP1xcvMsYit3sSUFabdOD6sy.svg)](https://asciinema.org/a/JFP1xcvMsYit3sSUFabdOD6sy)
+  
+
 ## Features
 
 This template comes with:
