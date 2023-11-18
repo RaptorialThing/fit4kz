@@ -14,7 +14,7 @@ Authentication
 - User
   - Users 
   - Admins
-[![asciicast](https://asciinema.org/a/JFP1xcvMsYit3sSUFabdOD6sy.svg)](https://asciinema.org/a/JFP1xcvMsYit3sSUFabdOD6sy)
+<script async id="asciicast-JFP1xcvMsYit3sSUFabdOD6sy" src="https://asciinema.org/a/JFP1xcvMsYit3sSUFabdOD6sy.js"></script>
   
 
 ## Features
