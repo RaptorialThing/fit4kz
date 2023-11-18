@@ -14,8 +14,8 @@
 #  index_programs_on_user_id  (user_id)
 #
 class Program < ApplicationRecord
-  has_many :trainings
-  has_many :program_followers
+  has_many :trainings, dependent: :destroy
+  has_many :program_followers, dependent: :destroy
   has_many :followed_users, through: :program_followers
   belongs_to :user
   alias_attribute :author, :user

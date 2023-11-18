@@ -31,6 +31,7 @@ gem 'sendgrid', '~> 1.2.4'
 gem 'sprockets', '~> 4.2.1'
 gem 'strong_migrations', '~> 1.6'
 gem 'yaaf', '~> 2.2'
+gem 'ice_cube'
 gem 'jsonapi-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
