@@ -25,7 +25,7 @@ describe 'GET api/v1/programs/:id' do
     expect(response).to have_http_status(:success)
   end
 
-  it "returns the program data" do
+  it "it returns 200 program data" do
     training
     subject
     expect(json[:data][0][:id]).to eq(program.id.to_s)
