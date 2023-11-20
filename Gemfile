@@ -33,6 +33,8 @@ gem 'strong_migrations', '~> 1.6'
 gem 'yaaf', '~> 2.2'
 gem 'ice_cube'
 gem 'jsonapi-rails'
+gem 'rswag-api'
+gem 'rswag-ui'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -46,6 +48,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.2'
   gem 'pry-byebug', '~> 3.9', platform: :mri
   gem 'pry-rails', '~> 0.3.9'
+  gem 'rswag-specs'
 end
 
 group :development do

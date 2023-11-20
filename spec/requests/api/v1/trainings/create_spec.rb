@@ -20,6 +20,7 @@ describe 'POST api/v1/trainings' do
     }
   end
 
+  context 'creates the training' do
   it_behaves_like 'check authenticity token in headers'
 
   it 'returns a successful response' do
@@ -37,6 +38,7 @@ describe 'POST api/v1/trainings' do
     expect(json[:data][:attributes][:description]).to eq(training.description)
     expect(json[:data][:relationships][:program][:data][:id]).to eq(program.id.to_s)
     expect(json[:data][:relationships][:user][:data][:id]).to eq(user.id.to_s)
+  end
   end
 
   context 'when the program_id is not correct' do
