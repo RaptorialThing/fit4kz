@@ -3,6 +3,6 @@ class SerializableUserCalendarTraining < JSONAPI::Serializable::Resource
   belongs_to :training
   belongs_to :user
 
-  attributes :icube_rule, :last_date
+  attributes :icube_rule, :last_date, :training_datetime
 end
 

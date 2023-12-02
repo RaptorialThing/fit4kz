@@ -5,6 +5,493 @@ info:
   version: 1.0.0
 servers: []
 paths:
+  "/api/v1/trainings":
+    post:
+      summary: create
+      tags:
+      - Api::V1::Training
+      parameters:
+      - name: access-token
+        in: header
+        required: true
+        schema:
+          type: string
+        example: 91id_qqb05pwkqe0pjIxOg
+      - name: client
+        in: header
+        required: true
+        schema:
+          type: string
+        example: KKnG3AFYWym74crE-KXGqg
+      - name: uid
+        in: header
+        required: true
+        schema:
+          type: string
+        example: shaun@jenkins.example
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                training:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                    description:
+                      type: string
+                    user_id:
+                      type: integer
+                    program_id:
+                      type: integer
+                    video_link:
+                      type: string
+                  required:
+                  - title
+                  - description
+                  - user_id
+                  - program_id
+                  - video_link
+              required:
+              - training
+            example:
+              training:
+                title: test
+                description: description
+                user_id: 113
+                program_id: 100500
+                video_link: https://www.youtube.com/
+      responses:
+        '201':
+          description: return a Authorization Header
+          headers:
+            access-token:
+              schema:
+                type: string
+            expiry:
+              schema:
+                type: integer
+            token-type:
+              schema:
+                type: string
+            uid:
+              schema:
+                type: string
+            client:
+              schema:
+                type: string
+          content:
+            application/vnd.api+json:
+              schema:
+                type: string
+              example: '{"data":{"id":"35","type":"training","attributes":{"title":"test","description":"description","video_link":"https://www.youtube.com/"},"relationships":{"program":{"data":{"type":"program","id":"47"}},"user":{"data":{"type":"user","id":"110"}}}},"included":[{"id":"47","type":"program","attributes":{"title":"Cat
+                Anderson"}},{"id":"110","type":"user","attributes":{"username":"minh.mclaughlin","uid":"duncan_schimmel@harber.example"}}],"jsonapi":{"version":"1.0"}}'
+        '415':
+          description: does not return a successful response
+          headers:
+            access-token:
+              schema:
+                type: string
+            expiry:
+              schema:
+                type: integer
+            token-type:
+              schema:
+                type: string
+            uid:
+              schema:
+                type: string
+            client:
+              schema:
+                type: string
+          content:
+            application/vnd.api+json:
+              schema:
+                type: string
+              example: '{"errors":[{"title":"Invalid program","detail":"Program must
+                exist","source":{}}],"jsonapi":{"version":"1.0"}}'
+    get:
+      summary: index
+      tags:
+      - Api::V1::Training
+      parameters:
+      - name: access-token
+        in: header
+        required: true
+        schema:
+          type: string
+        example: 9fz7CPywFfu9sF1rTgGllw
+      - name: client
+        in: header
+        required: true
+        schema:
+          type: string
+        example: 03_MmmAFdRprcitRbY1t5g
+      - name: uid
+        in: header
+        required: true
+        schema:
+          type: string
+        example: maritza@oreilly.example
+      responses:
+        '200':
+          description: does not return a Set-Cookie Header
+          headers:
+            access-token:
+              schema:
+                type: string
+            expiry:
+              schema:
+                type: integer
+            token-type:
+              schema:
+                type: string
+            uid:
+              schema:
+                type: string
+            client:
+              schema:
+                type: string
+          content:
+            application/vnd.api+json:
+              schema:
+                type: string
+              example: '{"data":[],"jsonapi":{"version":"1.0"}}'
+  "/api/v1/settings/must_update":
+    get:
+      summary: must_update
+      tags:
+      - Api::V1::Setting
+      parameters:
+      - name: device_version
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1.0'
+      responses:
+        '200':
+          description: returns no need to update
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  must_update:
+                    type: boolean
+                required:
+                - must_update
+              example:
+                must_update: false
+  "/api/v1/programs":
+    get:
+      summary: index
+      tags:
+      - Api::V1::Program
+      parameters:
+      - name: access-token
+        in: header
+        required: true
+        schema:
+          type: string
+        example: ga63eXb05XUkizojqf4VAA
+      - name: client
+        in: header
+        required: true
+        schema:
+          type: string
+        example: JCzSfTlV-rSvAUKG2tHQCg
+      - name: uid
+        in: header
+        required: true
+        schema:
+          type: string
+        example: willie@abernathy-ratke.test
+      responses:
+        '200':
+          description: does not return a Set-Cookie Header
+          headers:
+            access-token:
+              schema:
+                type: string
+            expiry:
+              schema:
+                type: integer
+            token-type:
+              schema:
+                type: string
+            uid:
+              schema:
+                type: string
+            client:
+              schema:
+                type: string
+          content:
+            application/vnd.api+json:
+              schema:
+                type: string
+              example: '{"data":[],"jsonapi":{"version":"1.0"}}'
+    post:
+      summary: create
+      tags:
+      - Api::V1::Program
+      parameters:
+      - name: access-token
+        in: header
+        required: true
+        schema:
+          type: string
+        example: BGRJebEmKOsOVfxsMLkx7g
+      - name: client
+        in: header
+        required: true
+        schema:
+          type: string
+        example: krjuMhdT3rdMSoLKE0Ukrg
+      - name: uid
+        in: header
+        required: true
+        schema:
+          type: string
+        example: cordie@rowe.test
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                program:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                    description:
+                      type: string
+                    user_id:
+                      type: integer
+                  required:
+                  - title
+                  - description
+                  - user_id
+              required:
+              - program
+            example:
+              program:
+                title: test
+                description: description
+                user_id: 100500
+      responses:
+        '201':
+          description: return a Authorization Header
+          headers:
+            access-token:
+              schema:
+                type: string
+            expiry:
+              schema:
+                type: integer
+            token-type:
+              schema:
+                type: string
+            uid:
+              schema:
+                type: string
+            client:
+              schema:
+                type: string
+          content:
+            application/vnd.api+json:
+              schema:
+                type: string
+              example: '{"data":{"id":"61","type":"program","attributes":{"title":"test","description":"description"},"relationships":{"trainings":{"data":[]},"program_followers":{"meta":{"included":false}},"users":{"meta":{"included":false}},"user":{"data":{"type":"user","id":"162"}}}},"included":[{"id":"162","type":"user","attributes":{"username":"clarissa.zemlak","uid":"tabetha@bednar.test"}}],"jsonapi":{"version":"1.0"}}'
+        '415':
+          description: does not return a successful response
+          headers:
+            access-token:
+              schema:
+                type: string
+            expiry:
+              schema:
+                type: integer
+            token-type:
+              schema:
+                type: string
+            uid:
+              schema:
+                type: string
+            client:
+              schema:
+                type: string
+          content:
+            application/vnd.api+json:
+              schema:
+                type: string
+              example: '{"errors":[{"title":"Invalid user","detail":"User must exist","source":{}}],"jsonapi":{"version":"1.0"}}'
+  "/api/v1/users/sign_out":
+    delete:
+      summary: destroy
+      tags:
+      - Api::V1::Session
+      responses:
+        '404':
+          description: returns not found response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                - error
+              example:
+                error: User was not found or was not logged in.
+        '200':
+          description: returns a successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                required:
+                - success
+              example:
+                success: true
+      parameters:
+      - name: access-token
+        in: header
+        required: true
+        schema:
+          type: string
+        example: I-ZY6rFoNo8dDnA88fJxfQ
+      - name: client
+        in: header
+        required: true
+        schema:
+          type: string
+        example: UfgqGqZFNEA7paRFK1m6Ww
+      - name: uid
+        in: header
+        required: true
+        schema:
+          type: string
+        example: sherley@schultz.example
+  "/api/v1/users/sign_in":
+    post:
+      summary: create
+      tags:
+      - Api::V1::Session
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    password:
+                      type: string
+                  required:
+                  - email
+                  - password
+              required:
+              - user
+            example:
+              user:
+                email: andreas@jakubowski.example
+                password: password
+      responses:
+        '401':
+          description: returns to be unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                - error
+              example:
+                error: Invalid login credentials. Please try again.
+        '200':
+          description: does not return a Set-Cookie Header
+          headers:
+            access-token:
+              schema:
+                type: string
+            expiry:
+              schema:
+                type: integer
+            token-type:
+              schema:
+                type: string
+            uid:
+              schema:
+                type: string
+            client:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      email:
+                        type: string
+                      name:
+                        type: string
+                      username:
+                        type: string
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      uid:
+                        type: string
+                      provider:
+                        type: string
+                      created_at:
+                        type: string
+                      updated_at:
+                        type: string
+                    required:
+                    - id
+                    - email
+                    - name
+                    - username
+                    - first_name
+                    - last_name
+                    - uid
+                    - provider
+                    - created_at
+                    - updated_at
+                required:
+                - user
+              example:
+                user:
+                  id: 132
+                  email: andreas@jakubowski.example
+                  name: zelda
+                  username: zelda
+                  first_name: ''
+                  last_name: ''
+                  uid: andreas@jakubowski.example
+                  provider: email
+                  created_at: '2023-12-02T10:34:56.775Z'
+                  updated_at: '2023-12-02T10:34:56.937Z'
   "/api/v1/user":
     put:
       summary: update
@@ -16,39 +503,55 @@ paths:
         required: true
         schema:
           type: string
-        example: o42X3b5rddV2A2y_4ERgMg
+        example: G4p4D16WZ2oRoamVWiFDCA
       - name: client
         in: header
         required: true
         schema:
           type: string
-        example: QmOb2YaBsqQ3_k2J83W_uA
+        example: 9-vUEzvrlndrzhEA1ikc2Q
       - name: uid
         in: header
         required: true
         schema:
           type: string
-        example: hector@bechtelar.test
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                user:
-                  type: object
-                  properties:
-                    username:
-                      type: string
-                    email:
-                      type: string
-              required:
-              - user
-            example:
-              user:
-                username: new username
-                email: notanemail
+        example: cherilyn@hane-toy.test
       responses:
+        '422':
+          description: returns the missing params error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                - error
+              example:
+                error: A required param is missing
+        '400':
+          description: returns the error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        items:
+                          type: string
+                    required:
+                    - email
+                required:
+                - errors
+              example:
+                errors:
+                  email:
+                  - is not an email
         '200':
           description: returns the user full name
           headers:
@@ -110,51 +613,35 @@ paths:
                 - user
               example:
                 user:
-                  id: 867
-                  email: ali_gusikowski@ullrich.example
+                  id: 140
+                  email: cherilyn@hane-toy.test
                   name: new username
                   username: new username
                   first_name: ''
                   last_name: ''
-                  uid: ali_gusikowski@ullrich.example
+                  uid: cherilyn@hane-toy.test
                   provider: email
-                  created_at: '2023-11-20T16:21:32.318Z'
-                  updated_at: '2023-11-20T16:21:32.585Z'
-        '400':
-          description: returns the error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  errors:
-                    type: object
-                    properties:
-                      email:
-                        type: array
-                        items:
-                          type: string
-                    required:
-                    - email
-                required:
-                - errors
-              example:
-                errors:
-                  email:
-                  - is not an email
-        '422':
-          description: returns the missing params error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                required:
-                - error
-              example:
-                error: A required param is missing
+                  created_at: '2023-12-02T10:34:59.196Z'
+                  updated_at: '2023-12-02T10:34:59.547Z'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    username:
+                      type: string
+              required:
+              - user
+            example:
+              user:
+                email: notanemail
+                username: new username
     get:
       summary: show
       tags:
@@ -165,19 +652,19 @@ paths:
         required: true
         schema:
           type: string
-        example: 2FxoStbTTIkgDONETJyflw
+        example: fHnq2LlwmMxetI7jPFjykg
       - name: client
         in: header
         required: true
         schema:
           type: string
-        example: FMfXvKRJ2v0c_qErW5Lj5w
+        example: w99nuQYCUEuFzq8-3qRdhA
       - name: uid
         in: header
         required: true
         schema:
           type: string
-        example: roxanna_abbott@rowe-aufderhar.example
+        example: clement@bergnaum.test
       responses:
         '200':
           description: does not return a Set-Cookie Header
@@ -240,16 +727,16 @@ paths:
                 - user
               example:
                 user:
-                  id: 932
-                  email: abraham_dickinson@leuschke.test
-                  name: randy
-                  username: randy
+                  id: 157
+                  email: dennis.lind@jacobi.test
+                  name: albertha
+                  username: albertha
                   first_name: ''
                   last_name: ''
-                  uid: abraham_dickinson@leuschke.test
+                  uid: dennis.lind@jacobi.test
                   provider: email
-                  created_at: '2023-11-20T16:21:44.818Z'
-                  updated_at: '2023-11-20T16:21:44.935Z'
+                  created_at: '2023-12-02T10:35:04.576Z'
+                  updated_at: '2023-12-02T10:35:04.707Z'
         '404':
           description: returns status 404 not found
           content:
@@ -263,36 +750,39 @@ paths:
                 - error
               example:
                 error: Couldn't find the record
-  "/api/v1/users/sign_in":
-    post:
-      summary: create
+  "/api/v1/trainings/{id}":
+    get:
+      summary: show
       tags:
-      - Api::V1::Session
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                user:
-                  type: object
-                  properties:
-                    email:
-                      type: string
-                    password:
-                      type: string
-                  required:
-                  - email
-                  - password
-              required:
-              - user
-            example:
-              user:
-                email: eliseo.monahan@hessel-hamill.test
-                password: wrong_password!
+      - Api::V1::Training
+      parameters:
+      - name: access-token
+        in: header
+        required: true
+        schema:
+          type: string
+        example: j0GBjAHMhmDUtAzF45qjuQ
+      - name: client
+        in: header
+        required: true
+        schema:
+          type: string
+        example: VByjXViEtYgpuzfIQsW1QA
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 100500
+      - name: uid
+        in: header
+        required: true
+        schema:
+          type: string
+        example: nelda@mueller.example
       responses:
-        '200':
-          description: does not raise an error
+        '404':
+          description: returns status 404 not found
           headers:
             access-token:
               schema:
@@ -310,71 +800,175 @@ paths:
               schema:
                 type: string
           content:
-            application/json:
+            application/vnd.api+json:
               schema:
-                type: object
-                properties:
-                  user:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                      email:
-                        type: string
-                      name:
-                        type: string
-                      username:
-                        type: string
-                      first_name:
-                        type: string
-                      last_name:
-                        type: string
-                      uid:
-                        type: string
-                      provider:
-                        type: string
-                      created_at:
-                        type: string
-                      updated_at:
-                        type: string
-                    required:
-                    - id
-                    - email
-                    - name
-                    - username
-                    - first_name
-                    - last_name
-                    - uid
-                    - provider
-                    - created_at
-                    - updated_at
-                required:
-                - user
-              example:
-                user:
-                  id: 876
-                  email: palmer.greenholt@gislason.example
-                  name: angelia.ferry
-                  username: angelia.ferry
-                  first_name: ''
-                  last_name: ''
-                  uid: palmer.greenholt@gislason.example
-                  provider: email
-                  created_at: '2023-11-20T16:21:34.661Z'
-                  updated_at: '2023-11-20T16:21:34.817Z'
-        '401':
-          description: returns to be unauthorized
+                type: string
+              example: '{"errors":[{"detail":"record not found"}],"jsonapi":{"version":"1.0"}}'
+  "/api/v1/user_calendar_trainings":
+    get:
+      summary: index
+      tags:
+      - Api::V1::UserCalendarTraining
+      parameters:
+      - name: access-token
+        in: header
+        required: true
+        schema:
+          type: string
+        example: HRCHy2kl8-QObSeAVLa5Sw
+      - name: client
+        in: header
+        required: true
+        schema:
+          type: string
+        example: szRgCONpGRpC5NJKMYceuA
+      - name: uid
+        in: header
+        required: true
+        schema:
+          type: string
+        example: quincy@medhurst-welch.test
+      responses:
+        '200':
+          description: does not return a Set-Cookie Header
+          headers:
+            access-token:
+              schema:
+                type: string
+            expiry:
+              schema:
+                type: integer
+            token-type:
+              schema:
+                type: string
+            uid:
+              schema:
+                type: string
+            client:
+              schema:
+                type: string
+          content:
+            application/vnd.api+json:
+              schema:
+                type: string
+              example: '{"data":[],"jsonapi":{"version":"1.0"}}'
+    post:
+      summary: create
+      tags:
+      - Api::V1::UserCalendarTraining
+      parameters:
+      - name: access-token
+        in: header
+        required: true
+        schema:
+          type: string
+        example: HcyjK3PLFKwY4Bl11QnzHg
+      - name: client
+        in: header
+        required: true
+        schema:
+          type: string
+        example: GTDUtrfo3XsEtZQno_iOCg
+      - name: uid
+        in: header
+        required: true
+        schema:
+          type: string
+        example: domingo@farrell-sipes.example
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_calendar_training:
+                  type: object
+                  properties:
+                    training_id:
+                      type: integer
+                    user_id:
+                      type: integer
+                    training_datetime:
+                      type: string
+                  required:
+                  - training_id
+                  - user_id
+                  - training_datetime
+              required:
+              - user_calendar_training
+            example:
+              user_calendar_training:
+                training_id: 42
+                user_id: 178
+                training_datetime: '2023-12-02T13:35:10.167+03:00'
+      responses:
+        '201':
+          description: return a Authorization Header
+          headers:
+            access-token:
+              schema:
+                type: string
+            expiry:
+              schema:
+                type: integer
+            token-type:
+              schema:
+                type: string
+            uid:
+              schema:
+                type: string
+            client:
+              schema:
+                type: string
+          content:
+            application/vnd.api+json:
+              schema:
+                type: string
+              example: '{"data":{"id":"22","type":"user_calendar_training","attributes":{"icube_rule":null,"last_date":null},"relationships":{"training":{"data":{"type":"training","id":"42"}},"user":{"data":{"type":"user","id":"178"}}}},"included":[{"id":"42","type":"training","attributes":{"title":"Modern
+                Times"}},{"id":"178","type":"user","attributes":{"username":"milly","uid":"domingo@farrell-sipes.example"}}],"jsonapi":{"version":"1.0"}}'
+        '422':
+          description: does not return a successful response
+          headers:
+            access-token:
+              schema:
+                type: string
+            expiry:
+              schema:
+                type: integer
+            token-type:
+              schema:
+                type: string
+            uid:
+              schema:
+                type: string
+            client:
+              schema:
+                type: string
+          content:
+            application/vnd.api+json:
+              schema:
+                type: string
+              example: '{"errors":[{"title":"Invalid training","detail":"Training
+                must exist","source":{}}],"jsonapi":{"version":"1.0"}}'
+  "/api/v1/status":
+    get:
+      summary: status
+      tags:
+      - Api::V1::Api
+      responses:
+        '200':
+          description: returns the api status
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  error:
-                    type: string
+                  online:
+                    type: boolean
                 required:
-                - error
+                - online
               example:
-                error: Invalid login credentials. Please try again.
+                online: true
   "/api/v1/users":
     post:
       summary: create
@@ -420,7 +1014,7 @@ paths:
                 last_name: Perez
       responses:
         '201':
-          description: does not raise an error
+          description: does not return a Set-Cookie Header
           content:
             application/json:
               schema:
@@ -458,14 +1052,14 @@ paths:
                 - provider
                 - uid
               example:
-                id: 885
+                id: 183
                 email: test@example.com
                 allow_password_change: false
                 first_name: Johnny
                 last_name: Perez
                 username: test
-                created_at: '2023-11-20T16:21:36.043Z'
-                updated_at: '2023-11-20T16:21:36.043Z'
+                created_at: '2023-12-02T10:35:11.477Z'
+                updated_at: '2023-12-02T10:35:11.477Z'
                 provider: email
                 uid: test@example.com
         '401':
@@ -477,528 +1071,7 @@ paths:
                 items:
                   type: string
               example:
-              - Password confirmation doesn't match Password
-  "/api/v1/settings/must_update":
-    get:
-      summary: must_update
-      tags:
-      - Api::V1::Setting
-      parameters:
-      - name: device_version
-        in: query
-        required: false
-        schema:
-          type: string
-        example: '1.0'
-      responses:
-        '200':
-          description: returns it needs to update
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  must_update:
-                    type: boolean
-                required:
-                - must_update
-              example:
-                must_update: true
-  "/api/v1/user_calendar_trainings":
-    post:
-      summary: create
-      tags:
-      - Api::V1::UserCalendarTraining
-      parameters:
-      - name: access-token
-        in: header
-        required: true
-        schema:
-          type: string
-        example: Sj_-xEizQbxeMwDSNLVFUQ
-      - name: client
-        in: header
-        required: true
-        schema:
-          type: string
-        example: wRy2jlFOKrock0C51CalkA
-      - name: uid
-        in: header
-        required: true
-        schema:
-          type: string
-        example: glenna@prosacco.test
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                user_calendar_training:
-                  type: object
-                  properties:
-                    training_id:
-                      type: integer
-                    user_id:
-                      type: integer
-                  required:
-                  - training_id
-                  - user_id
-              required:
-              - user_calendar_training
-            example:
-              user_calendar_training:
-                training_id: 123
-                user_id: 899
-      responses:
-        '201':
-          description: return a Authorization Header
-          headers:
-            access-token:
-              schema:
-                type: string
-            expiry:
-              schema:
-                type: integer
-            token-type:
-              schema:
-                type: string
-            uid:
-              schema:
-                type: string
-            client:
-              schema:
-                type: string
-          content:
-            application/vnd.api+json:
-              schema:
-                type: string
-              example: '{"data":{"id":"58","type":"user_calendar_training","attributes":{"icube_rule":null,"last_date":null},"relationships":{"training":{"data":{"type":"training","id":"123"}},"user":{"data":{"type":"user","id":"899"}}}},"included":[{"id":"123","type":"training","attributes":{"title":"Toy
-                Story 3"}},{"id":"899","type":"user","attributes":{"username":"mitch","uid":"glenna@prosacco.test"}}],"jsonapi":{"version":"1.0"}}'
-        '422':
-          description: does not create a training
-          headers:
-            access-token:
-              schema:
-                type: string
-            expiry:
-              schema:
-                type: integer
-            token-type:
-              schema:
-                type: string
-            uid:
-              schema:
-                type: string
-            client:
-              schema:
-                type: string
-          content:
-            application/vnd.api+json:
-              schema:
-                type: string
-              example: '{"errors":[{"title":"Invalid training","detail":"Training
-                must exist","source":{}}],"jsonapi":{"version":"1.0"}}'
-    get:
-      summary: index
-      tags:
-      - Api::V1::UserCalendarTraining
-      parameters:
-      - name: access-token
-        in: header
-        required: true
-        schema:
-          type: string
-        example: DPuqrrZMRkq87SUwkiOqxA
-      - name: client
-        in: header
-        required: true
-        schema:
-          type: string
-        example: CqMAsJdQkMjoeLt7wA8e4Q
-      - name: uid
-        in: header
-        required: true
-        schema:
-          type: string
-        example: anneliese.stoltenberg@paucek-mosciski.example
-      responses:
-        '200':
-          description: does not return a Set-Cookie Header
-          headers:
-            access-token:
-              schema:
-                type: string
-            expiry:
-              schema:
-                type: integer
-            token-type:
-              schema:
-                type: string
-            uid:
-              schema:
-                type: string
-            client:
-              schema:
-                type: string
-          content:
-            application/vnd.api+json:
-              schema:
-                type: string
-              example: '{"data":[],"jsonapi":{"version":"1.0"}}'
-  "/api/v1/user_calendar_trainings/{id}":
-    get:
-      summary: show
-      tags:
-      - Api::V1::UserCalendarTraining
-      parameters:
-      - name: access-token
-        in: header
-        required: true
-        schema:
-          type: string
-        example: HI9jt5ogPHU72EX6Z0VYHw
-      - name: client
-        in: header
-        required: true
-        schema:
-          type: string
-        example: fMUX5hCGptLSBuoKJpb-Tw
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-        example: 100500
-      - name: uid
-        in: header
-        required: true
-        schema:
-          type: string
-        example: ivette@labadie-reichert.test
-      responses:
-        '404':
-          description: returns status 404 not found
-          headers:
-            access-token:
-              schema:
-                type: string
-            expiry:
-              schema:
-                type: integer
-            token-type:
-              schema:
-                type: string
-            uid:
-              schema:
-                type: string
-            client:
-              schema:
-                type: string
-          content:
-            application/vnd.api+json:
-              schema:
-                type: string
-              example: '{"errors":[{"detail":"record not found"}],"jsonapi":{"version":"1.0"}}'
-  "/api/v1/trainings":
-    post:
-      summary: create
-      tags:
-      - Api::V1::Training
-      parameters:
-      - name: access-token
-        in: header
-        required: true
-        schema:
-          type: string
-        example: wvjmmBdpjjpTcB8Xwhsehg
-      - name: client
-        in: header
-        required: true
-        schema:
-          type: string
-        example: xu9qJ5eYQaZ5mjFQeAFKLA
-      - name: uid
-        in: header
-        required: true
-        schema:
-          type: string
-        example: luciano@goldner.test
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                training:
-                  type: object
-                  properties:
-                    title:
-                      type: string
-                    description:
-                      type: string
-                    user_id:
-                      type: integer
-                    program_id:
-                      type: integer
-                    video_link:
-                      type: string
-                  required:
-                  - title
-                  - description
-                  - user_id
-                  - program_id
-                  - video_link
-              required:
-              - training
-            example:
-              training:
-                title: test
-                description: description
-                user_id: 913
-                program_id: 100500
-                video_link: https://www.youtube.com/
-      responses:
-        '201':
-          description: return a Authorization Header
-          headers:
-            access-token:
-              schema:
-                type: string
-            expiry:
-              schema:
-                type: integer
-            token-type:
-              schema:
-                type: string
-            uid:
-              schema:
-                type: string
-            client:
-              schema:
-                type: string
-          content:
-            application/vnd.api+json:
-              schema:
-                type: string
-              example: '{"data":{"id":"128","type":"training","attributes":{"title":"test","description":"description","video_link":"https://www.youtube.com/"},"relationships":{"program":{"data":{"type":"program","id":"241"}},"user":{"data":{"type":"user","id":"910"}}}},"included":[{"id":"241","type":"program","attributes":{"title":"The
-                Kinks"}},{"id":"910","type":"user","attributes":{"username":"mitch_bode","uid":"brian_auer@connelly.example"}}],"jsonapi":{"version":"1.0"}}'
-        '415':
-          description: does not return a successful response
-          headers:
-            access-token:
-              schema:
-                type: string
-            expiry:
-              schema:
-                type: integer
-            token-type:
-              schema:
-                type: string
-            uid:
-              schema:
-                type: string
-            client:
-              schema:
-                type: string
-          content:
-            application/vnd.api+json:
-              schema:
-                type: string
-              example: '{"errors":[{"title":"Invalid program","detail":"Program must
-                exist","source":{}}],"jsonapi":{"version":"1.0"}}'
-    get:
-      summary: index
-      tags:
-      - Api::V1::Training
-      parameters:
-      - name: access-token
-        in: header
-        required: true
-        schema:
-          type: string
-        example: 6S_muKDCKbRxbpTMLGFN-w
-      - name: client
-        in: header
-        required: true
-        schema:
-          type: string
-        example: Nqm-RcETT-tlfuxnb61e_w
-      - name: uid
-        in: header
-        required: true
-        schema:
-          type: string
-        example: ken@zieme-gutmann.example
-      responses:
-        '200':
-          description: does not return a Set-Cookie Header
-          headers:
-            access-token:
-              schema:
-                type: string
-            expiry:
-              schema:
-                type: integer
-            token-type:
-              schema:
-                type: string
-            uid:
-              schema:
-                type: string
-            client:
-              schema:
-                type: string
-          content:
-            application/vnd.api+json:
-              schema:
-                type: string
-              example: '{"data":[],"jsonapi":{"version":"1.0"}}'
-  "/api/v1/programs":
-    get:
-      summary: index
-      tags:
-      - Api::V1::Program
-      parameters:
-      - name: access-token
-        in: header
-        required: true
-        schema:
-          type: string
-        example: NnXRA3gaNr3mCnJJjsoCPw
-      - name: client
-        in: header
-        required: true
-        schema:
-          type: string
-        example: OrvdYUCc50T43HES3gCxQQ
-      - name: uid
-        in: header
-        required: true
-        schema:
-          type: string
-        example: cletus@kreiger.test
-      responses:
-        '200':
-          description: does not return a Set-Cookie Header
-          headers:
-            access-token:
-              schema:
-                type: string
-            expiry:
-              schema:
-                type: integer
-            token-type:
-              schema:
-                type: string
-            uid:
-              schema:
-                type: string
-            client:
-              schema:
-                type: string
-          content:
-            application/vnd.api+json:
-              schema:
-                type: string
-              example: '{"data":[{"id":"249","type":"program","attributes":{"title":"test
-                title","description":"test description"},"relationships":{"trainings":{"data":[]},"program_followers":{"meta":{"included":false}},"users":{"meta":{"included":false}},"user":{"data":{"type":"user","id":"943"}}}}],"included":[{"id":"943","type":"user","attributes":{"username":"carleen.stehr","uid":"cletus@kreiger.test"}}],"jsonapi":{"version":"1.0"}}'
-    post:
-      summary: create
-      tags:
-      - Api::V1::Program
-      parameters:
-      - name: access-token
-        in: header
-        required: true
-        schema:
-          type: string
-        example: 6VGtA-QbUY80xxxXffzLFw
-      - name: client
-        in: header
-        required: true
-        schema:
-          type: string
-        example: 9W4gBo--ny42ZxkACuOmiA
-      - name: uid
-        in: header
-        required: true
-        schema:
-          type: string
-        example: mac@veum.example
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                program:
-                  type: object
-                  properties:
-                    title:
-                      type: string
-                    description:
-                      type: string
-                    user_id:
-                      type: integer
-                  required:
-                  - title
-                  - description
-                  - user_id
-              required:
-              - program
-            example:
-              program:
-                title: test
-                description: description
-                user_id: 949
-      responses:
-        '201':
-          description: return a Authorization Header
-          headers:
-            access-token:
-              schema:
-                type: string
-            expiry:
-              schema:
-                type: integer
-            token-type:
-              schema:
-                type: string
-            uid:
-              schema:
-                type: string
-            client:
-              schema:
-                type: string
-          content:
-            application/vnd.api+json:
-              schema:
-                type: string
-              example: '{"data":{"id":"253","type":"program","attributes":{"title":"test","description":"description"},"relationships":{"trainings":{"data":[]},"program_followers":{"meta":{"included":false}},"users":{"meta":{"included":false}},"user":{"data":{"type":"user","id":"949"}}}},"included":[{"id":"949","type":"user","attributes":{"username":"kieth_bruen","uid":"mac@veum.example"}}],"jsonapi":{"version":"1.0"}}'
-        '415':
-          description: does not return a successful response
-          headers:
-            access-token:
-              schema:
-                type: string
-            expiry:
-              schema:
-                type: integer
-            token-type:
-              schema:
-                type: string
-            uid:
-              schema:
-                type: string
-            client:
-              schema:
-                type: string
-          content:
-            application/vnd.api+json:
-              schema:
-                type: string
-              example: '{"errors":[{"title":"Invalid user","detail":"User must exist","source":{}}],"jsonapi":{"version":"1.0"}}'
+              - Password is too short (minimum is 8 characters)
   "/api/v1/programs/{id}":
     get:
       summary: show
@@ -1010,13 +1083,13 @@ paths:
         required: true
         schema:
           type: string
-        example: TifKL9XzBp0UINfyJjvXMw
+        example: 9zuq6DqjSvVzTfFjQCH6OQ
       - name: client
         in: header
         required: true
         schema:
           type: string
-        example: rxD1KZ2EryIKLDIONB9Kkg
+        example: lC1aFKTOrw_YO2L6U7ETQg
       - name: id
         in: path
         required: true
@@ -1028,7 +1101,7 @@ paths:
         required: true
         schema:
           type: string
-        example: lester@beer.test
+        example: garland_conroy@feil.test
       responses:
         '404':
           description: returns status 404 not found
@@ -1043,24 +1116,24 @@ paths:
                 - error
               example:
                 error: Couldn't find the record
-  "/api/v1/trainings/{id}":
+  "/api/v1/user_calendar_trainings/{id}":
     get:
       summary: show
       tags:
-      - Api::V1::Training
+      - Api::V1::UserCalendarTraining
       parameters:
       - name: access-token
         in: header
         required: true
         schema:
           type: string
-        example: qDC_lLFldTqCu4uqjDT5Xw
+        example: H0uOzych3RwqWHr8KlfZ0w
       - name: client
         in: header
         required: true
         schema:
           type: string
-        example: Ui_w0SE96qvxX6kCaTrgEA
+        example: I6y_VkfnPeV8Xf_Nn3fqkQ
       - name: id
         in: path
         required: true
@@ -1072,7 +1145,7 @@ paths:
         required: true
         schema:
           type: string
-        example: doreatha@koepp-hoppe.example
+        example: efren@tillman.example
       responses:
         '404':
           description: returns status 404 not found
@@ -1097,73 +1170,3 @@ paths:
               schema:
                 type: string
               example: '{"errors":[{"detail":"record not found"}],"jsonapi":{"version":"1.0"}}'
-  "/api/v1/users/sign_out":
-    delete:
-      summary: destroy
-      tags:
-      - Api::V1::Session
-      responses:
-        '404':
-          description: returns not found response
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                required:
-                - error
-              example:
-                error: User was not found or was not logged in.
-        '200':
-          description: returns a successful response
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  success:
-                    type: boolean
-                required:
-                - success
-              example:
-                success: true
-      parameters:
-      - name: access-token
-        in: header
-        required: true
-        schema:
-          type: string
-        example: 2EMHg0U-iT6g3TIM5y51Ug
-      - name: client
-        in: header
-        required: true
-        schema:
-          type: string
-        example: fgLPT4C_Nmh2C-OET02QWw
-      - name: uid
-        in: header
-        required: true
-        schema:
-          type: string
-        example: mandie_streich@monahan.test
-  "/api/v1/status":
-    get:
-      summary: status
-      tags:
-      - Api::V1::Api
-      responses:
-        '200':
-          description: returns the api status
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  online:
-                    type: boolean
-                required:
-                - online
-              example:
-                online: true

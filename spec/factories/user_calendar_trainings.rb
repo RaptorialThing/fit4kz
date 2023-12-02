@@ -2,13 +2,14 @@
 #
 # Table name: user_calendar_trainings
 #
-#  id          :bigint           not null, primary key
-#  user_id     :bigint           not null
-#  training_id :bigint           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  icube_rule  :string
-#  last_date   :datetime
+#  id                :bigint           not null, primary key
+#  user_id           :bigint           not null
+#  training_id       :bigint           not null
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  icube_rule        :string
+#  last_date         :datetime
+#  training_datetime :datetime
 #
 # Indexes
 #

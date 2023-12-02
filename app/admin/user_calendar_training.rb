@@ -5,12 +5,12 @@ ActiveAdmin.register UserCalendarTraining do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :user_id, :training_id, :icube_rule, :last_date
+  permit_params :user_id, :training_id, :icube_rule, :last_date, :training_datetime
   #
   # or
   #
   permit_params do
-    permitted = [:user_id, :training_id, :icube_rule, :last_date]
+    permitted = [:user_id, :training_id, :icube_rule, :last_date, :training_datetime]
     permitted << :other if params[:action] == 'create'
     permitted
   end

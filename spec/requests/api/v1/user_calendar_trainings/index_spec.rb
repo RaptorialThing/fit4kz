@@ -19,7 +19,8 @@ describe 'GET api/v1/user_calendar_trainings' do
   })}
   let(:user_calendar_training) {
     training.user_calendar_trainings.create({
-      user_id: user.id
+      user_id: user.id,
+      training_datetime: DateTime.now
     })
   }
 

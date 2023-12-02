@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_18_195812) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_02_102142) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -138,6 +138,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_18_195812) do
     t.datetime "updated_at", null: false
     t.string "icube_rule"
     t.datetime "last_date"
+    t.datetime "training_datetime"
     t.index ["training_id"], name: "index_user_calendar_trainings_on_training_id"
     t.index ["user_id"], name: "index_user_calendar_trainings_on_user_id"
   end

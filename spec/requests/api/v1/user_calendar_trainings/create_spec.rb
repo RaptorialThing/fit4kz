@@ -11,7 +11,8 @@ describe 'POST api/v1/user_calendar_trainings' do
     {
       user_calendar_training: {
         training_id: training_id,
-        user_id: user.id
+        user_id: user.id,
+        training_datetime: DateTime.now
       }
     }
   end
