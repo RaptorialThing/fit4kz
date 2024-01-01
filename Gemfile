@@ -45,7 +45,7 @@ gem 'rswag-ui'
 group :development, :test do
   gem 'annotate', '~> 3.2', '>= 3.0.3'
   gem 'dotenv-rails', '~> 2.8.1'
-  gem 'factory_bot_rails', '~> 6.2'
+  gem 'factory_bot_rails', '~> 6.4'
   gem 'pry-byebug', '~> 3.9', platform: :mri
   gem 'pry-rails', '~> 0.3.9'
   gem 'rswag-specs'
